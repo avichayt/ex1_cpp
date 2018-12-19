@@ -3,4 +3,4 @@ project(ex1)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(ex1 main.cpp Vector3D.cpp Vector3D.h)
+add_executable(ex1 main.cpp Vector3D.cpp Vector3D.h Matrix3D.cpp Matrix3D.h)

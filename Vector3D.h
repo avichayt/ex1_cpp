@@ -2,6 +2,10 @@
 // Created by USER on 12/16/2018.
 //
 
+//todo warnings check
+// todo comments
+// todo conventions
+
 #ifndef EX1_VECTOR3D_H
 #define EX1_VECTOR3D_H
 
