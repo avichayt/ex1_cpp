@@ -26,7 +26,7 @@ public:
 
     Matrix3D(Vector3D v1, Vector3D v2, Vector3D v3);
 
-    Matrix3D(Matrix3D &other);
+    Matrix3D(const Matrix3D &other);
 
     Vector3D row(short i);
 
@@ -35,6 +35,32 @@ public:
     double trace();
 
     double determinant();
+    
+    Matrix3D operator+(const Matrix3D &other);
+
+    Matrix3D operator-(const Matrix3D &other);
+
+    Matrix3D operator*(const Matrix3D &other);
+
+    Matrix3D &operator+=(const Matrix3D &other);
+
+    Matrix3D &operator-=(const Matrix3D &other);
+
+    Matrix3D &operator*=(double other);
+
+    Matrix3D &operator/=(double other);
+
+    Vector3D operator*(Vector3D &other);
+
+    friend std::istream &operator>>(std::istream &stream, Matrix3D &matrix);
+
+    friend std::ostream &operator<<(std::ostream &stream, const Matrix3D &matrix);
+
+    Matrix3D &operator=(const Matrix3D &other);
+
+    Vector3D operator[](int i) const;
+
+    Vector3D &operator[](int i);
 
 private:
     Vector3D vectors[MATRIX_SIZE];

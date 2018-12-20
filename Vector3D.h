@@ -26,13 +26,13 @@ public:
 
     Vector3D(Vector3D &copyVector);
 
-    double dist(Vector3D &other);
+    double dist(const Vector3D &other) const;
 
-    double norm();
+    double norm() const;
 
-    Vector3D operator+(const Vector3D &other);
+    Vector3D operator+(const Vector3D &other) const;
 
-    Vector3D operator-(const Vector3D &other);
+    Vector3D operator-(const Vector3D &other) const;
 
     Vector3D &operator+=(const Vector3D &other);
 
@@ -52,11 +52,11 @@ public:
 
     Vector3D operator/(double number);
 
-    double operator|(Vector3D &other);
+    double operator|(const Vector3D &other);
 
-    double operator*(Vector3D &other);
+    double operator*(const Vector3D &other);
 
-    double operator^(Vector3D &other);
+    double operator^(const Vector3D &other);
 
     friend Vector3D operator*(double left, const Vector3D &right);
 

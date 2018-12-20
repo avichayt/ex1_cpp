@@ -26,13 +26,13 @@ Vector3D::Vector3D(Vector3D &copyVector)
     _z = copyVector._z;
 }
 
-Vector3D Vector3D::operator+(const Vector3D &other)
+Vector3D Vector3D::operator+(const Vector3D &other) const
 {
     Vector3D result(_x + other._x, _y + other._y, _z + other._z);
     return result;
 }
 
-Vector3D Vector3D::operator-(const Vector3D &other)
+Vector3D Vector3D::operator-(const Vector3D &other) const
 {
     Vector3D result(_x - other._x, _y - other._y, _z - other._z);
     return result;
@@ -116,29 +116,29 @@ Vector3D operator*(double left, const Vector3D &right)
     return result;
 }
 
-double Vector3D::dist(Vector3D &other)
+double Vector3D::dist(const Vector3D &other) const
 {
     const Vector3D &sub = *this - other;
     return sqrt(sub._x * sub._x + sub._y * sub._y + sub._z * sub._z);
 }
 
-double Vector3D::norm()
+double Vector3D::norm() const
 {
     Vector3D origin(0, 0, 0);
     return dist(origin);
 }
 
-double Vector3D::operator|(Vector3D &other)
+double Vector3D::operator|(const Vector3D &other)
 {
     return dist(other);
 }
 
-double Vector3D::operator*(Vector3D &other)
+double Vector3D::operator*(const Vector3D &other)
 {
     return _x * other._x + _y * other._y + _z * other._z;
 }
 
-double Vector3D::operator^(Vector3D &other)
+double Vector3D::operator^(const Vector3D &other)
 {
     return ((*this) * other) / norm() / other.norm();
 }
