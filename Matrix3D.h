@@ -15,12 +15,14 @@ class Matrix3D
 public:
     Matrix3D();
 
-    void initialize_from_array(double array[MATRIX_SIZE][MATRIX_SIZE]);
+    void initialize_from_array(double array[MATRIX_SIZE * MATRIX_SIZE]);
 
     Matrix3D(double number);
 
     Matrix3D(double n11, double n12, double n13, double n21, double n22, double n23, double n31, double n32,
              double n33);
+
+    Matrix3D(double array[MATRIX_SIZE * MATRIX_SIZE]);
 
     Matrix3D(double array[MATRIX_SIZE][MATRIX_SIZE]);
 
@@ -30,17 +32,19 @@ public:
 
     Vector3D row(short i);
 
-    Vector3D column(short i);
+    Vector3D column(short i) const;
 
     double trace();
 
     double determinant();
-    
+
     Matrix3D operator+(const Matrix3D &other);
 
     Matrix3D operator-(const Matrix3D &other);
 
     Matrix3D operator*(const Matrix3D &other);
+
+    Matrix3D &operator*=(const Matrix3D &other);
 
     Matrix3D &operator+=(const Matrix3D &other);
 

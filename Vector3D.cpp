@@ -19,7 +19,7 @@ Vector3D::Vector3D() : Vector3D(0, 0, 0)
 Vector3D::Vector3D(double array[VECTOR_SIZE]) : Vector3D(array[0], array[1], array[2])
 {}
 
-Vector3D::Vector3D(Vector3D &copyVector)
+Vector3D::Vector3D(const Vector3D &copyVector)
 {
     _x = copyVector._x;
     _y = copyVector._y;
@@ -85,6 +85,11 @@ Vector3D &Vector3D::operator*=(const double other)
 
 Vector3D &Vector3D::operator/=(const double other)
 {
+    if (other == 0)
+    {
+        std::cerr << DIVISION_BY_ZERO_ERROR;
+        exit(EXIT_FAILURE);
+    }
     _x /= other;
     _y /= other;
     _z /= other;
@@ -119,7 +124,7 @@ Vector3D operator*(double left, const Vector3D &right)
 double Vector3D::dist(const Vector3D &other) const
 {
     const Vector3D &sub = *this - other;
-    return sqrt(sub._x * sub._x + sub._y * sub._y + sub._z * sub._z);
+    return std::sqrt(sub._x * sub._x + sub._y * sub._y + sub._z * sub._z);
 }
 
 double Vector3D::norm() const
@@ -140,7 +145,7 @@ double Vector3D::operator*(const Vector3D &other)
 
 double Vector3D::operator^(const Vector3D &other)
 {
-    return ((*this) * other) / norm() / other.norm();
+    return std::acos(((*this) * other) / norm() / other.norm());
 }
 
 std::istream &operator>>(std::istream &stream, Vector3D &vector)
@@ -150,7 +155,7 @@ std::istream &operator>>(std::istream &stream, Vector3D &vector)
 
 std::ostream &operator<<(std::ostream &stream, const Vector3D &vector)
 {
-    return stream << vector._x << vector._y << vector._z << std::endl;
+    return stream << vector._x << ' ' << vector._y << ' ' << vector._z << std::endl;
 }
 
 Vector3D &Vector3D::operator=(const Vector3D &other)
@@ -162,12 +167,25 @@ Vector3D &Vector3D::operator=(const Vector3D &other)
 
 double Vector3D::operator[](int i) const
 {
-    return (*this)[i];
+    switch (i)
+    {
+        case 0:
+            return _x;
+        case 1:
+            return _y;
+        case 2:
+            return _z;
+        default:
+            std::cerr << INDEX_OUT_OF_BOUNDS_ERROR;
+            exit(EXIT_FAILURE);
+    }
 }
+
 
 double &Vector3D::operator[](int i)
 {
-    switch (i){
+    switch (i)
+    {
         case 0:
             return _x;
         case 1:

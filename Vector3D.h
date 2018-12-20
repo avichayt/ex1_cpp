@@ -15,6 +15,8 @@
 
 #define INDEX_OUT_OF_BOUNDS_ERROR "Error: index out of bounds."
 
+#define DIVISION_BY_ZERO_ERROR "Error: Division by zero."
+
 class Vector3D
 {
 public:
@@ -24,7 +26,7 @@ public:
 
     Vector3D();
 
-    Vector3D(Vector3D &copyVector);
+    Vector3D(const Vector3D &copyVector);
 
     double dist(const Vector3D &other) const;
 
@@ -69,7 +71,6 @@ public:
     double operator[](int i) const;
 
     double & operator[] (int i);
-
 
 private:
     double _x;
