@@ -1,8 +1,13 @@
-//
-// Created by USER on 12/19/2018.
-//
+//Matrix3D.cpp
 
 #include "Matrix3D.h"
+
+// --------------------------------------------------------------------------------------
+// This file contains the implementation of the class Matrix3D.
+// --------------------------------------------------------------------------------------
+
+// ------------------ Constructors ------------------------
+
 
 Matrix3D::Matrix3D() : Matrix3D(0, 0, 0, 0, 0, 0, 0, 0, 0)
 {}
@@ -52,6 +57,10 @@ Matrix3D::Matrix3D(Vector3D v1, Vector3D v2, Vector3D v3)
     vectors[1] = v2;
     vectors[2] = v3;
 }
+
+
+// ------------------ Methods ------------------------
+
 
 void checkIndex(short i)
 {

@@ -1,7 +1,6 @@
 // Vector3D.h
 
 //todo warnings check
-// todo comments
 // todo conventions
 
 #ifndef EX1_VECTOR3D_H
@@ -151,23 +150,70 @@ public:
      */
     double operator*(const Vector3D &other);
 
+    /**
+     * get angle in radian from other vector
+     * @param other other vector
+     * @return the angle in radians
+     */
     double operator^(const Vector3D &other);
 
+    /**
+     * mult vector by number (from left)
+     * @param left the number
+     * @param right the vector
+     * @return the result
+     */
     friend Vector3D operator*(double left, const Vector3D &right);
 
+    /**
+     * overload >> operator
+     * @param stream stream to print
+     * @param vector vector to print
+     * @return the stream
+     */
     friend std::istream &operator>>(std::istream &stream, Vector3D &vector);
 
+    /**
+     * overload << operator
+     * @param stream stream to get input from
+     * @param vector vector to get
+     * @return the stream
+     */
     friend std::ostream &operator<<(std::ostream &stream, const Vector3D &vector);
 
+    /**
+     * overload = operator
+     * @param other the other vector
+     * @return this vector
+     */
     Vector3D &operator=(const Vector3D &other);
 
+    /**
+     * get the i'th coordinate
+     * @param i the coordinate
+     * @return result
+     */
     double operator[](int i) const;
 
+    /**
+     * set the i'th coordinate
+     * @param i the coordinate
+     * @return result
+     */
     double &operator[](int i);
 
 private:
+    /**
+     * x value of the vector
+     */
     double _x;
+    /**
+    * y value of the vector
+    */
     double _y;
+    /**
+    * z value of the vector
+    */
     double _z;
 };
 

@@ -1,10 +1,15 @@
-//
-// Created by USER on 12/16/2018.
-//
+// Vector3D.cpp
 
 #include "Vector3D.h"
 #include <cmath>
 #include <iostream>
+
+// --------------------------------------------------------------------------------------
+// This file contains the implementation of the class Vector3D.
+// --------------------------------------------------------------------------------------
+
+
+// ------------------ Constructors ------------------------
 
 Vector3D::Vector3D(double x, double y, double z)
 {
@@ -25,6 +30,8 @@ Vector3D::Vector3D(const Vector3D &copyVector)
     _y = copyVector._y;
     _z = copyVector._z;
 }
+
+// ------------------ Methods ------------------------
 
 Vector3D Vector3D::operator+(const Vector3D &other) const
 {
